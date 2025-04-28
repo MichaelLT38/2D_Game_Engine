@@ -55,7 +55,25 @@ if(WIN32)
     # Define project
     project(2DGameEngine LANGUAGES CXX)
 
-    # TODO: Get imgui and sol
+    # Automatically install required vcpkg packages
+    set(VCPKG_REQUIRED_PACKAGES zlib libpng SDL2 SDL2-ttf SDL2-image SDL2-mixer lua imgui glm)
+    foreach(PACKAGE ${VCPKG_REQUIRED_PACKAGES})
+        execute_process(
+                COMMAND ${VCPKG_DIR}/vcpkg.exe install ${PACKAGE}:${VCPKG_TARGET_TRIPLET}
+                RESULT_VARIABLE VCPKG_INSTALL_RESULT
+                OUTPUT_VARIABLE VCPKG_INSTALL_OUTPUT
+                ERROR_VARIABLE VCPKG_INSTALL_ERROR
+                WORKING_DIRECTORY ${VCPKG_DIR}
+        )
+        if(NOT VCPKG_INSTALL_RESULT EQUAL 0)
+            message(FATAL_ERROR
+                    "Failed to install vcpkg package '${PACKAGE}' for triplet '${VCPKG_TARGET_TRIPLET}'.\n"
+                    "Output:\n${VCPKG_INSTALL_OUTPUT}\nError:\n${VCPKG_INSTALL_ERROR}"
+            )
+        endif()
+        message(STATUS "Installed vcpkg package '${PACKAGE}' for triplet '${VCPKG_TARGET_TRIPLET}'")
+    endforeach()
+
 
     # Find vcpkg-installed packages
     find_package(ZLIB REQUIRED)
