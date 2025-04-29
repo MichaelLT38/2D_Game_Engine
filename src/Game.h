@@ -28,21 +28,29 @@
 #error "Unsupported platform"
 #endif
 
+const int FPS = 60;
+const int MS_PER_FRAME = 1000 / FPS;
+
 class Game {
     private:
     bool running;
+    int milliseconds = 0;
     SDL_Window* window;
     SDL_Renderer* renderer;
 
     public:
-        Game();
-        ~Game();
-        void Init();
-        void Run();
-        void Update();
-        void Render();
-        void ProcessInput();
-        void Destroy();
+    Game();
+    ~Game();
+    void Init();
+    void Run();
+    void Setup();
+    void Update();
+    void Render();
+    void ProcessInput();
+    void CleanUp();
+    int windowWidth;
+    int windowHeight;
+
 };
 
 
