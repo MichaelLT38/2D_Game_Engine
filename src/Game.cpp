@@ -86,7 +86,7 @@ void Game::Render() {
     SDL_SetRenderDrawColor(renderer, 25, 25, 25, 255);
     SDL_RenderClear(renderer);
 
-    SDL_Surface* surface = IMG_Load("../assets/images/tank-tiger-right.png");
+    SDL_Surface* surface = IMG_Load("./assets/images/tank-tiger-right.png");
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
 

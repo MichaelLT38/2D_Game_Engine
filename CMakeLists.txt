@@ -132,6 +132,7 @@ if(WIN32)
             "${CMAKE_SOURCE_DIR}/src"
             ${LUA_INCLUDE_DIR}
     )
+    file(COPY ${CMAKE_SOURCE_DIR}/assets DESTINATION ${CMAKE_BINARY_DIR})
 endif ()
 
 # macOS-specific dependency management with Homebrew

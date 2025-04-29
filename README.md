@@ -1,3 +1,19 @@
+# Windows Instructions:
+
+## CLion:
+
+If you intend to use CLion, be sure you have Windows' MSVC compiler install. This can be accomplished simply by having Visual Studio Community 2022 install. Then, just be sure Visual Studio is your default toolchain under File->Settings->Build, Execution, Deployment->Toolchains. Move it to the top of the list to make it your default compiler. This is necessary since we'll be using vcpkg to fetch the required libraries and vcpkg uses MSVC which includes runtime checks that are not supported by MinGW.
+
+## Visual Studio:
+
+If you intend to use Visual Studio, you will need to acquire Git. You can download Git from https://git-scm.com/downloads/win. Default installation settings should suffice for our needs. Then, of course, you'll need Visual Studio. Visual Studio Community 2022 is recommended. Once installed, be sure to open the Visual Studio Installer, select "modify", and check the option to add "Desktop development with C++" so that you have CMake support.
+
+If the CMake configuration doesn't start automatically, right-click CMakeLists.txt and choose "Configure 2DGameEngine".
+
+The assets folder is not included. Be sure to add your assets folder into the root directory of your project and CMake will copy to your build folder.
 
 
-Using Windows will require an installation of Visual Studio and since vcpkg libraries are built using MSVC which includes runtime checks that are not supported in MinGW. So we recommend using MSVC on WIndows platforms. 
+# Apple Instructions:
+
+
+# Linux Instructions:
