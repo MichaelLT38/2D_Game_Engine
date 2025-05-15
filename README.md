@@ -1,3 +1,9 @@
+# Brief Project Description and Intent:
+
+This project is for my own self-study of CMake while referencing the pikuma course ["2D Game Engine with C++ and Lua"](https://pikuma.com/courses/cpp-2d-game-engine-development). To build, you will need the assets folder provided by Pikuma in the root directory. Platform specific instructions provided below.
+
+I'm seeking to learn how to use CMake for build automation and testing. So, I do intend to make all major platforms supported and integrate testing.
+
 # Windows Instructions:
 
 ## CLion:
@@ -15,5 +21,8 @@ The assets folder is not included. Be sure to add your assets folder into the ro
 
 # Apple Instructions:
 
+I don't have an Apple computer. Sorry. If I find one at a garage sale, I'll pick it up just for this purpose.
 
 # Linux Instructions:
+
+TODO: I want to provide a CMake to automate builds and tests on three flavors of linux; Debian, Arch, and Redhat.

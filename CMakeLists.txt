@@ -110,6 +110,32 @@ if(WIN32)
     )
     message(STATUS "Source files: ${SOURCE_FILES}")
 
+    ##################################################################################
+    ## TESTING ##
+    # Enable testing
+    enable_testing()
+
+    add_library(MyLoggerLib STATIC
+            src/Logger/Logger.cpp
+            # Add more logger-related .cpp files if you have them
+    )
+
+    target_include_directories(MyLoggerLib PUBLIC
+            "${CMAKE_SOURCE_DIR}/src/Logger"
+    )
+
+    # Create an executable for your LoggerTest
+    add_executable(LoggerTest
+            tests/LoggerTest.cpp
+    )
+
+    target_link_libraries(LoggerTest PRIVATE MyLoggerLib)
+
+    # Register the test with CTest so you can run it using ctest
+    add_test(NAME LoggerTest COMMAND LoggerTest)
+
+    ##################################################################################
+
     # Create executable
     add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 

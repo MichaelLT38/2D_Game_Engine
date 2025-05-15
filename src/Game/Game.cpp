@@ -5,11 +5,12 @@
 
 
 #include "Game.h"
-#include "Logger.h"
+#include "../Logger/Logger.h"
 
 
 Game::Game() {
     running = false;
+    Logger::Init();
     Logger::Log("Game constructor started");
 }
 
@@ -18,7 +19,7 @@ Game::~Game() {
 }
 
 void Game::Init() {
-    Logger::Init();
+
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
         Logger::Err("SDL_Init Error");
         return;
@@ -40,10 +41,10 @@ void Game::Init() {
     }
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if (renderer == nullptr) {
-        Logger::Err("SDL_CreateRenderer Error");
+        Logger::Err("SDL_CreateRenderer Error"); 
         return;
     }
-    SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+    SDL_SetWindowFullscreen(window, SDL_WINDOW_BORDERLESS);
     running = true;
 }
 
