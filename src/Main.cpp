@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: https://pvs-studio.com
+
 #ifdef _WIN32
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
@@ -22,6 +25,7 @@
 #endif
 
 #include "./Game/Game.h"
+
 
 int main(int argc, char** argv) {
     Game game;
